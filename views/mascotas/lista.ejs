@@ -1,0 +1,36 @@
+<h1>
+    <%= titulo %>
+</h1>
+
+<a href="/mascotas/nueva">Agregar una mascota</a>
+
+
+<!--Comprueba si la lista de mascotas está vacía. Si no hay mascotas, muestra un mensaje; si hay mascotas, crea una sección donde se mostrará el catálogo. -->
+<% if (listaMascotas.length===0) { %>
+    <p> No hay mascotas disponibles.</p>
+    <% } else { %>
+        <section class="grilla" aria-label="Mascotas disponibles">
+
+            <% listaMascotas.forEach((mascota)=> { %>
+                <!-- Crea una tarjeta individual para la mascota actual del recorrido -->
+                <article class="tarjeta">
+                    <!-- Muestra el nombre de la mascota actual como título de la tarjeta -->
+                    <h2>
+                        <%= mascota.nombre %>
+                    </h2>
+                    <!-- Muestra la especie de la mascota actual -->
+                    <p>Especie: <%= mascota.especie %>
+                    </p>
+                    <!-- Muestra la edad de la mascota actual -->
+                    <p>Edad: <%= mascota.edad %> años</p>
+                    <!-- Muestra el estado de adopción de la mascota actual -->
+                    <p>Estado: <%= mascota.estado %>
+                    </p>
+                    <!-- Crea un enlace al detalle usando el identificador de la mascota actual -->
+                    <a href="/mascotas/<%= mascota.id %>">Ver detalle</a>
+                </article>
+                <% }) %>
+
+        </section>
+
+        <%} %>

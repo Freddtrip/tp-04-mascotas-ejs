@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <%#//recibe el titulo enviado desde res.render()%>
+    <title><%= titulo %></title>
+</head>
+<body>
+    <%# //recibe el contenido enviado desde res.render() y lo inyecta en la plantilla %>
+    
+    <%- body %>
+</body>
+</html>

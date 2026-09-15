@@ -1,0 +1,20 @@
+<!-- Muestra como título el nombre de la mascota recibida desde la ruta -->
+<h1><%= mascota.nombre %></h1>
+
+<!-- Muestra la imagen indicada en el JSON y utiliza el nombre de la mascota como descripción -->
+ <!-- Muestra la imagen indicada en el JSON con un ancho de 300 píxeles -->
+<img
+    src="<%= mascota.imagen %>"
+    alt="Imagen de <%= mascota.nombre %>"
+    style="width: 300px; max-width: 100%; height: auto;"
+>
+<!-- Muestra todos los datos de la mascota seleccionada -->
+<p>Especie: <%= mascota.especie %></p>
+<p>Edad: <%= mascota.edad %> años</p>
+<p>Descripción: <%= mascota.descripcion %></p>
+<p>Estado: <%= mascota.estado %></p>
+
+
+
+<!-- Permite regresar desde el detalle al catálogo completo -->
+<a href="/mascotas">Volver al catálogo</a>

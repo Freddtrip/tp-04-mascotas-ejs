@@ -1,0 +1,47 @@
+[
+  {
+    "id": 1,
+    "nombre": "Nala",
+    "especie": "Gato",
+    "edad": 3,
+    "descripcion": "Gata serena, curiosa y acostumbrada a convivir con personas.",
+    "estado": "En adopción",
+    "imagen": "/img/mascota.svg"
+  },
+  {
+    "id": 2,
+    "nombre": "Bruno",
+    "especie": "Perro",
+    "edad": 4,
+    "descripcion": "Perro sociable, obediente y con mucha energía para paseos.",
+    "estado": "En adopción",
+    "imagen": "/img/mascota.svg"
+  },
+  {
+    "id": 3,
+    "nombre": "Copito",
+    "especie": "Conejo",
+    "edad": 2,
+    "descripcion": "Conejo dócil, tranquilo y acostumbrado a un hogar con cuidados responsables.",
+    "estado": "Reservada",
+    "imagen": "/img/mascota.svg"
+  },
+  {
+    "id": 4,
+    "nombre": "Moka",
+    "especie": "Hurón",
+    "edad": 1,
+    "descripcion": "Hurón juguetón, curioso y activo, ideal para una familia con tiempo para acompañarlo.",
+    "estado": "En adopción",
+    "imagen": "/img/mascota.svg"
+  },
+  {
+    "id": 5,
+    "nombre": "Tita",
+    "especie": "Tortuga terrestre",
+    "edad": 6,
+    "descripcion": "Tortuga tranquila que necesita un espacio seguro y cuidados adecuados.",
+    "estado": "Adoptada",
+    "imagen": "/img/mascota.svg"
+  }
+]
