@@ -1,0 +1,53 @@
+/* Hace que el tamaño de los elementos incluya bordes y relleno */
+* {
+    box-sizing: border-box;
+}
+
+/* Estilos generales de la página */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    line-height: 1.5;
+    color: #252525;
+    background-color: #f5f5f5;
+}
+
+/* Limita el ancho del contenido principal y lo centra */
+main {
+    width: min(1100px, 90%);
+    margin: 2rem auto;
+}
+
+/* Estilos del encabezado */
+header {
+    padding: 1rem;
+    background-color: #315c4c;
+}
+
+/* Organiza los enlaces de navegación */
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+/* Estilos de los enlaces del menú */
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Subraya los enlaces al pasar el cursor */
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* Estilos del pie de página */
+footer {
+    padding: 1rem;
+    text-align: center;
+    color: white;
+    background-color: #315c4c;
+}

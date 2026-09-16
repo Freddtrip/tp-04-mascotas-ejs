@@ -65,20 +65,88 @@ async function main() {
     });
 
 
+    // Muestra el formulario para agregar una nueva mascota
+    app.get("/mascotas/nueva", (req, res) => {
+        res.render("mascotas/nueva", {
+            titulo: "Agregar una mascota",
+            error: null,
+            datos: {}
+        });
+    });
+
+    //-----------------------------------------------------------------------------------------
+
+    // Recibe y procesa los datos enviados desde el formulario
+    app.post("/mascotas", (req, res) => {
+        // Extrae los datos recibidos desde el formulario
+        const { nombre, especie, edad, estado, descripcion } = req.body;
+
+        // Limpia los textos y convierte la edad en un número
+        const nombreLimpio = String(nombre ?? "").trim();
+        const especieLimpia = String(especie ?? "").trim();
+        const estadoLimpio = String(estado ?? "").trim();
+        const descripcionLimpia = String(descripcion ?? "").trim();
+        const edadNumero = Number(edad);
+
+        // Comprueba que todos los campos estén completos
+        // y que la edad sea un número igual o mayor que cero
+        if (
+            !nombreLimpio ||
+            !especieLimpia ||
+            edad === "" ||
+            !estadoLimpio ||
+            !descripcionLimpia ||
+            !Number.isFinite(edadNumero) ||
+            edadNumero < 0
+        ) {
+            // Si hay un error, vuelve a mostrar el formulario
+            return res.status(400).render("mascotas/nueva", {
+                titulo: "Agregar una mascota",
+                error: "Completá todos los campos con valores válidos.",
+                datos: req.body
+            });
+        }
+
+        // Busca el ID más grande que existe actualmente 
+        //reduce()       // Busca el ID más grande
+        //push()         // Agrega la nueva mascota al arreglo
+        //redirect()     // Lleva al navegador nuevamente al catálogo
+        const ultimoId = mascotas.reduce(
+            (mayorId, mascota) => Math.max(mayorId, mascota.id),
+            0
+        );
+
+        // Crea la nueva mascota y la agrega al arreglo en memoria
+        mascotas.push({
+            id: ultimoId + 1,
+            nombre: nombreLimpio,
+            especie: especieLimpia,
+            edad: edadNumero,
+            descripcion: descripcionLimpia,
+            estado: estadoLimpio,
+            imagen: "/img/mascota.svg"
+        });
+
+        // Redirige al catálogo para mostrar la nueva mascota
+        res.redirect("/mascotas");
+    });
+
+
+    //----------------------------------------------------------
 
 
 
-// Busca una mascota por su id y envía sus datos a la vista detalle.ejs
+    // Busca una mascota por su id y envía sus datos a la vista detalle.ejs
     app.get("/mascotas/:id", (req, res) => {
         const id = Number(req.params.id);
         const mascotaEncontrada = mascotas.find((mascota) => mascota.id === id);
-// Si no existe una mascota con ese id, responde con estado 404
+        // Si no existe una mascota con ese id, responde con estado 404
 
-if (!mascotaEncontrada) {
-    return res.status(404).render("no-encontrado", {
-        titulo: "Mascota no encontrada"
-    });
-}
+        if (!mascotaEncontrada) {
+            return res.status(404).render("no-encontrado", {
+                titulo: "Mascota no encontrada"
+            });
+        }
 
 
 

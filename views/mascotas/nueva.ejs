@@ -1,0 +1,101 @@
+<!-- Muestra el título recibido desde res.render() -->
+<h1><%= titulo %></h1>
+
+<!-- Explica para qué sirve la página -->
+<p>Completá el formulario para agregar una nueva mascota.</p>
+
+<!-- Si existe un error, muestra el mensaje -->
+<% if (error) { %>
+    <p role="alert"><%= error %></p>
+<% } %>
+
+<!--
+    action="/mascotas": envía los datos a la ruta /mascotas.
+    method="post": indica que se enviarán datos para crear una mascota.
+-->
+<form action="/mascotas" method="post">
+
+    <!-- Campo para ingresar y conservar el nombre -->
+    <div>
+        <label for="nombre">Nombre:</label>
+
+        <input
+            type="text"
+            id="nombre"
+            name="nombre"
+            value="<%= datos.nombre || '' %>"
+        >
+    </div>
+
+    <!-- Campo para ingresar y conservar la especie -->
+    <div>
+        <label for="especie">Especie:</label>
+
+        <input
+            type="text"
+            id="especie"
+            name="especie"
+            value="<%= datos.especie || '' %>"
+        >
+    </div>
+
+    <!-- Campo numérico para ingresar y conservar la edad -->
+    <div>
+        <label for="edad">Edad:</label>
+
+        <input
+            type="number"
+            id="edad"
+            name="edad"
+            min="0"
+            value="<%= datos.edad ?? '' %>"
+        >
+    </div>
+
+    <!-- Lista para seleccionar y conservar el estado -->
+    <div>
+        <label for="estado">Estado:</label>
+
+        <select id="estado" name="estado">
+            <option value="">Seleccioná un estado</option>
+
+            <option
+                value="En adopción"
+                <%= datos.estado === "En adopción" ? "selected" : "" %>
+            >
+                En adopción
+            </option>
+
+            <option
+                value="Reservada"
+                <%= datos.estado === "Reservada" ? "selected" : "" %>
+            >
+                Reservada
+            </option>
+
+            <option
+                value="Adoptada"
+                <%= datos.estado === "Adoptada" ? "selected" : "" %>
+            >
+                Adoptada
+            </option>
+        </select>
+    </div>
+
+    <!-- Campo para ingresar y conservar la descripción -->
+    <div>
+        <label for="descripcion">Descripción:</label>
+
+        <textarea
+            id="descripcion"
+            name="descripcion"
+            rows="5"
+        ><%= datos.descripcion || '' %></textarea>
+    </div>
+
+    <!-- Envía el formulario -->
+    <button type="submit">Agregar mascota</button>
+</form>
+
+<!-- Regresa al listado -->
+<a href="/mascotas">Volver al catálogo</a>
