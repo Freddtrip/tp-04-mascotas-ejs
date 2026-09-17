@@ -5,4 +5,18 @@ async function leerJson (ruta){
     return JSON.parse(contenido);
 }
 
-module.exports = {leerJson};
+
+
+
+
+
+
+// Guarda datos dentro de un archivo JSON
+async function escribirJson(ruta, datos) {
+    const contenido = JSON.stringify(datos, null, 2);
+
+    await fs.writeFile(ruta, contenido, "utf8");
+}
+
+
+module.exports = {leerJson, escribirJson};

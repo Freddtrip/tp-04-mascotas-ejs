@@ -76,7 +76,7 @@ async function main() {
 
     //-----------------------------------------------------------------------------------------
 
-    // Recibe y procesa los datos enviados desde el formulario
+    // Recibe y procesa los datos enviados desde el formulario y se agrega async porque se va a usar await para escribir en el archivo JSON
     app.post("/mascotas", (req, res) => {
         // Extrae los datos recibidos desde el formulario
         const { nombre, especie, edad, estado, descripcion } = req.body;
@@ -127,7 +127,11 @@ async function main() {
             imagen: "/img/mascota.svg"
         });
 
-        // Redirige al catálogo para mostrar la nueva mascota
+
+
+
+        // Redirige al catálogo para mostrar la nueva mascota 
+
         res.redirect("/mascotas");
     });
 
@@ -174,10 +178,7 @@ async function main() {
 
 
 
-    //Devuelve todas las mascotas en formato JSON
-    app.get("/api/mascotas", (req, res) => {
-        res.json(mascotas);
-    });
+
 
 
     // BLOQUE H: ENCENDIDO DEL SERVIDOR
