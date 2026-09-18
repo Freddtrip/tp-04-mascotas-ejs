@@ -4,9 +4,10 @@
 <!-- Muestra la imagen indicada en el JSON y utiliza el nombre de la mascota como descripción -->
  <!-- Muestra la imagen indicada en el JSON con un ancho de 300 píxeles -->
 <img
+class="imagen-mascota"
     src="<%= mascota.imagen %>"
     alt="Imagen de <%= mascota.nombre %>"
-    style="width: 300px; max-width: 100%; height: auto;"
+
 >
 <!-- Muestra todos los datos de la mascota seleccionada -->
 <p>Especie: <%= mascota.especie %></p>
@@ -17,4 +18,4 @@
 
 
 <!-- Permite regresar desde el detalle al catálogo completo -->
-<a href="/mascotas">Volver al catálogo</a>
+<a class="boton" href="/mascotas">Volver al catálogo</a>

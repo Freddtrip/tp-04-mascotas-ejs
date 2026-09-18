@@ -51,3 +51,85 @@ footer {
     color: white;
     background-color: #315c4c;
 }
+
+
+
+
+
+
+
+/* Organiza las tarjetas de mascotas en una grilla adaptable */
+.grilla {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+    gap: 1rem;
+}
+
+/* Estilos de cada tarjeta de mascota */
+.tarjeta {
+    padding: 1.25rem;
+    border: 1px solid #d8d0c5;
+    border-radius: 0.9rem;
+    background: white;
+}
+
+/* Estilos del botón o enlace principal */
+.boton,
+button {
+    display: inline-block;
+    padding: 0.75rem 1rem;
+    border: 0;
+    border-radius: 0.65rem;
+    background: #315c4c;
+    color: white;
+    font: inherit;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Estilos del formulario */
+.formulario {
+    display: grid;
+    gap: 0.75rem;
+}
+
+.formulario label {
+    font-weight: bold;
+}
+
+.formulario input,
+.formulario textarea,
+.formulario select {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #a79c8e;
+    border-radius: 0.5rem;
+    font: inherit;
+}
+
+/* Mensaje de error */
+.error {
+    padding: 0.75rem 1rem;
+    border-left: 0.3rem solid #b42318;
+    background: #fff0ed;
+    color: #7a271a;
+    font-weight: bold;
+}
+
+/* Foco visible para teclado */
+.formulario input:focus,
+.formulario textarea:focus,
+.formulario select:focus,
+a:focus-visible,
+button:focus-visible {
+    outline: 3px solid #f4ca76;
+    outline-offset: 3px;
+}
+
+/*estilo de la imagen de la mascota en detalle.ejs*/
+.imagen-mascota {
+    width: 300px;
+    max-width: 100%;
+    height: auto;
+}

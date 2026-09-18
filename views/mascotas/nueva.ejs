@@ -4,16 +4,16 @@
 <!-- Explica para qué sirve la página -->
 <p>Completá el formulario para agregar una nueva mascota.</p>
 
-<!-- Si existe un error, muestra el mensaje -->
+<!-- Si existe un error, muestra el mensaje-->
 <% if (error) { %>
-    <p role="alert"><%= error %></p>
+    <p class="error" role="alert"><%= error %></p>
 <% } %>
 
 <!--
     action="/mascotas": envía los datos a la ruta /mascotas.
     method="post": indica que se enviarán datos para crear una mascota.
 -->
-<form action="/mascotas" method="post">
+<form action="/mascotas" method="post" class="formulario">
 
     <!-- Campo para ingresar y conservar el nombre -->
     <div>
@@ -94,7 +94,7 @@
     </div>
 
     <!-- Envía el formulario -->
-    <button type="submit">Agregar mascota</button>
+    <button type="submit">Guardar Mascota</button>
 </form>
 
 <!-- Regresa al listado -->
